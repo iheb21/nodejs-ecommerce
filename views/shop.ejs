@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&BSHoop</title>
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!--Font awesome CDN-->
+    <script src="https://kit.fontawesome.com/1d20b47144.js" crossorigin="anonymous"></script>
+    <!--Styles-->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <!--Owel carousel Style-->
+    <link rel="stylesheet" href="/stylesheets/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/owlcarousel/owl.theme.default.min.css">
+
+
+</head>
+
+<body>
+    <div class="container-fluid p-0 page-card">
+        <div class="bread-cumber text-center">
+            <h3>Shop</h3>
+        </div>
+        <div class="container-fluid container-narrow-card">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="shop-filter">
+                        <h5>Categories</h5>
+                        <div class="accordion mb-4 mt-4" id="accordionExample">
+                            <% for(var i=0; i< categorie.length; i++) { %>
+                                <div class="card-filter">
+                                    <div id="headingOne">
+                                        <h2 class="mb-0">
+                                            <a href="/shop?categorie=<%= categorie[i].id%>"
+                                                class="filter-btn btn-block text-left" type="button">
+                                                <%= categorie[i].nomCategorie%>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+
+                    </div>
+                </div>
+                <% if(data.length) { %>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <% for(var i=0; i< data.length; i++) { %>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <img src="<%= data[i].image%>" alt="">
+                                            <ul class="product-card-options">
+                                                <li><button data-toggle="tooltip" data-placement="bottom"
+                                                        title="Add to wishlist"><i class="far fa-heart"></i></button>
+                                                </li>
+                                                <li><button data-toggle="tooltip" data-placement="bottom"
+                                                        title="Add to compare"><i class="fas fa-retweet"></i></button>
+                                                </li>
+                                                <li data-toggle="tooltip" id="myButton" data-placement="bottom"
+                                                    title="Quick view"><a href="#" data-toggle="modal"
+                                                        data-target="#myModal"><i class="fas fa-search"></i></a></li>
+                                            </ul>
+                                            <span class="sale-item-box">Sale</span>
+                                        </div>
+                                        <div class="product-card-content">
+                                            <div class="product-card-inner-content">
+                                                <a href="#">
+                                                    <%= data[i].nomProduit%>
+                                                </a>
+                                                <p>
+                                                    <%= data[i].description%>
+                                                </p>
+                                                <div class="product-price-rate">
+                                                    <span> <strike>
+                                                            <%= data[i].prix + 50%> €
+                                                        </strike> </span>
+                                                    <span>
+                                                        <%= data[i].prix%> €
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                            <div class="add-to-cart-btn">
+                                                <a href="#">add to cart</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <% } %>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--Start Modal box-->
+    <div class="modal fade bd-example-modal-xl" id="myModal" tabindex="-1" role="dialog"
+        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-5 product-thumbnail text-center">
+                            <div class="imgBox"><a href="/images/assets/product14.jpg" class="image-link"><img
+                                        class="img-fluid mb-2" src="/assets/product14.jpg" alt=""></a></div>
+                            <div class="owl-carousel mb-3">
+                                <div class="item"><a href="/images/assets/product14.jpg" target="imgBox"><img
+                                            class="img-responsive" src="/assets/product14.jpg" alt=""></a></div>
+                                <div class="item"><a href="/images/assets/product10.jpg" target="imgBox"><img
+                                            class="img-responsive" src="/assets/product10.jpg" alt=""></a></div>
+                                <div class="item"><a href="/images/assets/product12.jpg" target="imgBox"><img
+                                            class="img-responsive" src="/assets/product12.jpg" alt=""></a></div>
+                                <div class="item"><a href="/images/assets/product10.jpg" target="imgBox"><img
+                                            class="img-responsive" src="/assets/product10.jpg" alt=""></a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-6">
+                            <h2>Water proof jacket</h2>
+                            <div class="modal-price mb-4">
+                                <span style="color: red;"> <strike>4,000 EGP</strike> </span>
+                                <span>3,500 EGP </span>
+                            </div>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione iste libero quisquam
+                                distinctio rem. Hic repellendus consequatur, perferendis fuga dolorem impedit velit
+                                maxime eius nobis delectus vero. Assumenda, voluptate quis!</p>
+                            <div class="variet-selects">
+                                <h5>Size</h5>
+                                <div class="varient-select-options">
+                                    <select class="form-control mb-3">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="S">XL</option>
+                                    </select>
+                                    <h5>Color</h5>
+                                    <select class="form-control mb-3">
+                                        <option value="">Red</option>
+                                        <option value="">blue</option>
+                                        <option value="">white</option>
+                                        <option value="">Black</option>
+                                        <option value="">Yellow</option>
+                                    </select>
+                                </div>
+                                <div class="modal-add-cart">
+                                    <input min="1" max="100" step="1" value="1" type="number">
+                                    <button type="submit">add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End modal box-->
+    <%- include('../views/footer.ejs') %>
+        <!--Bootstrap CDN-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+        <!--Owel carousel js-->
+        <script src="/stylesheets/owlcarousel/owl.carousel.min.js"></script>
+        <!--Istope-->
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <script src="/javascripts/js/main.js"></script>
+</body>
+
+</html>
