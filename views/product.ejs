@@ -52,13 +52,14 @@
                             <div class="col-12 mb-3"><a class="Product-details-title" href="#">Jacket Water proof</a>
                             </div>
                             <div class="col-12 customer-review-nav">
+                                <!-- TODO: A reprendre -->
                                 <ul class="customer-review-stras">
+                                    <% for (let i = 1; i < averageRating +1; ++i) { %>
                                     <li> <i class="fas fa-star"></i> </li>
-                                    <li> <i class="fas fa-star"></i> </li>
-                                    <li> <i class="fas fa-star"></i> </li>
-                                    <li> <i class="fas fa-star"></i> </li>
-                                    <li> <i class="fas fa-star"></i> </li>
-                                    <li><a href="#">(Customer Review)</a></li>
+                                    <% } %>
+                                    <% for (let i = averageRating; i < 5; ++i) { %>
+                                    <li> <i class="far fa-star"></i> </li>
+                                    <% } %>
                                 </ul>
 
                             </div>
@@ -191,7 +192,7 @@
                                             <div class="comment_text">
                                                 <div class="reviews_meta">
                                                     <div class="star_rating">
-                                                        <ul>
+                                                        <ul  class="customer-review-stras">
                                                             <% for (let i = 1; i < review.rating +1; ++i) { %>
                                                             <li> <i class="fas fa-star"></i> </li>
                                                             <% } %>
@@ -214,7 +215,7 @@
                                         </div>
                                         <div class="product_ratting mb-10">
                                             <h3>Your rating</h3>
-                                            <ul id="review-rating-selection">
+                                            <ul id="review-rating-selection" class="customer-review-stras">
                                                 <li onclick="changeRating(1)"> <i class="fas fa-star"></i> </li>
                                                 <li onclick="changeRating(2)"> <i class="fas fa-star"></i> </li>
                                                 <li onclick="changeRating(3)"> <i class="fas fa-star"></i> </li>

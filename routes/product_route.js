@@ -15,7 +15,9 @@ router.get('/product/:id', function (req, res, next) {
             if (product) {
                 query = 'SELECT * FROM reviews WHERE product_id = ?';
                 conn.query(query, [req.params.id], (err, rows) => {
-                    res.render('product', { product, reviews: rows });
+                    const averageRating = parseInt(rows.map(x => x.rating).reduce((x, y) => x + y, 0) / rows.length);
+                    console.log(averageRating);
+                    res.render('product', { product, reviews: rows, averageRating });
                 });
             } else {
                 res.redirect('/shop');
